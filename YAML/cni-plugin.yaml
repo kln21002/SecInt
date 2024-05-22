@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: install-cni-plugins
+  labels:
+    name: cni-plugins
+spec:
+  selector:
+    matchLabels:
+      name: cni-plugins
+  template:
+    metadata:
+      labels:
+        name: cni-plugins
+    spec:
+      hostNetwork: true
+      tolerations:
+        - operator: Exists
+          effect: NoSchedule
+      containers:
+        - name: install-cni-plugins
+          image: registry.nordix.org/cloud-native/meridio-io/cni-plugins:latest
+          securityContext:
+            privileged: true
+          command:
+            - /bin/sh
+            - -c
+          args:
+            - cp -a ./ /host/opt/cni/bin/ ; sleep infinity
+          volumeMounts:
+            - name: cni-bin
+              mountPath: /host/opt/cni/bin
+              mountPropagation: Bidirectional
+      volumes:
+        - name: cni-bin
+          hostPath:
+            path: /var/lib/cni/bin

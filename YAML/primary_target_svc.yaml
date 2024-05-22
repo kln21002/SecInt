@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-primary
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 5000
+  selector:
+    app: example-target-application-a
