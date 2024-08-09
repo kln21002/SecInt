@@ -1,5 +1,5 @@
-# Bachelor-Thesis-Service-Exposure-through-Secondary-Network-Attachment-in-Kubernetes
-This repository includes the scripts, configuration and source files used in the Bachelor Thesis - Service Exposure Through Secondary Network Attachment in Kubernetes by Kai Levin.
+# Enhancing Kubernetes with Secondary Network Interface for Service Exposure in Telecommunications
+This repository includes the scripts, configuration and source files used in the research "Enhancing Kubernetes with Secondary Network Interface for Service Exposure in Telecommunications".
 
 Meridio Deployment: helm package for Meridio and Meridio CRD used in the project. 
 
